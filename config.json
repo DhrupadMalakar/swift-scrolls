@@ -1,6 +1,6 @@
 {
-  "recipient_email": "dhrupad.official@gmail.com",
-  "sender_email": "taylored4avanti@outlook.com",
+  "recipient_email": "",
+  "sender_email": "",
   "sender_display_name": "The 13th Disciple – Swift Scrolls",
   "timezone": "Asia/Kolkata",
   "schedule": {
@@ -17,5 +17,6 @@
   "max_reddit_posts": 30,
   "max_youtube_videos": 5,
   "max_comments_per_source": 20,
-"tumblr_url": "https://taylorswift.tumblr.com"
+  "tumblr_url": "https://taylorswift.tumblr.com"
 }
+
