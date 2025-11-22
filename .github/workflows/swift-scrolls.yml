@@ -1,0 +1,46 @@
+name: Swift Scrolls – Weekly Swiftie Email
+
+on:
+  schedule:
+    # Runs every Sunday 07:43 UTC = 13:13 IST
+    - cron: "43 7 * * 0"
+  workflow_dispatch: {}
+
+jobs:
+  send-swift-scroll:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Create .env from secrets
+        run: |
+          echo "REDDIT_CLIENT_ID=${{ secrets.REDDIT_CLIENT_ID }}" >> .env
+          echo "REDDIT_CLIENT_SECRET=${{ secrets.REDDIT_CLIENT_SECRET }}" >> .env
+          echo "REDDIT_USERNAME=${{ secrets.REDDIT_USERNAME }}" >> .env
+          echo "REDDIT_PASSWORD=${{ secrets.REDDIT_PASSWORD }}" >> .env
+          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> .env
+          echo "YOUTUBE_API_KEY=${{ secrets.YOUTUBE_API_KEY }}" >> .env
+
+      - name: Restore Gmail credentials.json and token.json
+        run: |
+          echo "${{ secrets.GMAIL_CREDENTIALS_JSON }}" > credentials.json
+          echo "${{ secrets.GMAIL_TOKEN_JSON }}" > token.json
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Swift Scrolls sender
+        env:
+          # in case your code also reads env directly
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python src/send_swift_scroll.py
