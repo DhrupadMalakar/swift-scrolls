@@ -1,0 +1,21 @@
+{
+  "recipient_email": "dhrupad.official@gmail.com",
+  "sender_email": "taylored4avanti@outlook.com",
+  "sender_display_name": "The 13th Disciple – Swift Scrolls",
+  "timezone": "Asia/Kolkata",
+  "schedule": {
+    "day_of_week": "Sunday",
+    "local_time": "13:13"
+  },
+  "subreddits": [
+    "TaylorSwift",
+    "TaylorSwiftFans"
+  ],
+  "taylor_official_site": "https://www.taylorswift.com",
+  "showgirl_site": "https://taylor.lnk.to/TSTheLifeofaShowgirl",
+  "youtube_channel_id": "UCqECaJ8Gagnn7YCbPEzWH6g",
+  "max_reddit_posts": 30,
+  "max_youtube_videos": 5,
+  "max_comments_per_source": 20,
+"tumblr_url": "https://taylorswift.tumblr.com"
+}
